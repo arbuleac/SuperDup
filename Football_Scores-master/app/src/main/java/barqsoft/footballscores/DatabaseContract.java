@@ -9,8 +9,8 @@ import android.provider.BaseColumns;
  */
 public class DatabaseContract
 {
-    public static final String SCORES_TABLE = "scores_table";
-    public static final class scores_table implements BaseColumns
+    public static final String SCORES_TABLE = "ScoresTable";
+    public static final class ScoresTable implements BaseColumns
     {
         //Table data
         public static final String LEAGUE_COL = "league";
@@ -20,7 +20,7 @@ public class DatabaseContract
         public static final String AWAY_COL = "away";
         public static final String HOME_GOALS_COL = "home_goals";
         public static final String AWAY_GOALS_COL = "away_goals";
-        public static final String MATCH_ID = "match_id";
+        public static final String MATCH_ID = "matchId";
         public static final String MATCH_DAY = "match_day";
 
         //public static Uri SCORES_CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH)
