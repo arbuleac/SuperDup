@@ -10,7 +10,7 @@ import android.view.MenuItem;
 public class MainActivity extends ActionBarActivity
 {
     public static int selectedMatchId;
-    public static int current_fragment = 2;
+    public static int currentFragment = 2;
     private static final String SAVE_TAG = "Save Test";
     private PagerFragment myMain;
     @Override
@@ -69,7 +69,7 @@ public class MainActivity extends ActionBarActivity
         Log.v(SAVE_TAG,"will retrive");
         Log.v(SAVE_TAG,"fragment: "+String.valueOf(savedInstanceState.getInt("Pager_Current")));
         Log.v(SAVE_TAG,"selected id: "+savedInstanceState.getInt("Selected_match"));
-        current_fragment = savedInstanceState.getInt("Pager_Current");
+        currentFragment = savedInstanceState.getInt("Pager_Current");
         selectedMatchId = savedInstanceState.getInt("Selected_match");
         myMain = (PagerFragment) getSupportFragmentManager().getFragment(savedInstanceState,"myMain");
         super.onRestoreInstanceState(savedInstanceState);
