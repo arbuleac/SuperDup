@@ -26,7 +26,6 @@
                 android:layout_gravity="center" />
 
             <TextView
-                android:contentDescription="@string/cd_home_name"
                 android:id="@+id/home_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +42,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:contentDescription="@string/cd_score"
                 android:id="@+id/score_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -79,7 +77,6 @@
                 android:layout_gravity="center" />
 
             <TextView
-                android:contentDescription="@string/cd_away_name"
                 android:id="@+id/away_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

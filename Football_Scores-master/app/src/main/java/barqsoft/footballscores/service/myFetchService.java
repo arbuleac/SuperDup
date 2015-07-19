@@ -43,7 +43,6 @@ public class MyFetchService extends IntentService {
 
     private void getData(String timeFrame) {
 
-        //TODO Replace with the good, once API works and it is not off season.
         //Creating fetch URL
         final String BASE_URL = "http://api.football-data.org/alpha/fixtures"; //Base URL
         final String QUERY_TIME_FRAME = "timeFrame"; //Time Frame parameter to determine days
@@ -51,8 +50,8 @@ public class MyFetchService extends IntentService {
 
         Uri fetchBuild = Uri.parse(BASE_URL).buildUpon().
                 appendQueryParameter(QUERY_TIME_FRAME, timeFrame).build();
-        String url = "http://api.football-data.org/alpha/fixtures/?timeFrameStart=2015-03-01&timeFrameEnd=2015-03-05";
-        fetchBuild = Uri.parse(url);
+//        String url = "http://api.football-data.org/alpha/fixtures?timeFrame=n15";
+//        fetchBuild = Uri.parse(url);
         //Log.v(LOG_TAG, fetch_build.toString()); //log spam
         HttpURLConnection connection = null;
         BufferedReader reader = null;
@@ -145,7 +144,7 @@ public class MyFetchService extends IntentService {
         final String MATCH_DAY = "matchday";
 
         //Match data
-        String League = null;
+        String league = null;
         String mDate = null;
         String mTime = null;
         String home = null;
@@ -164,14 +163,14 @@ public class MyFetchService extends IntentService {
             Vector<ContentValues> values = new Vector<ContentValues>(matches.length());
             for (int i = 0; i < matches.length(); i++) {
                 JSONObject matchData = matches.getJSONObject(i);
-                League = matchData.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
+                league = matchData.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
                         getString("href");
-                League = League.replace(SEASON_LINK, "");
-                if (League.equals(PREMIER_LEGAUE) ||
-                        League.equals(SERIE_A) ||
-                        League.equals(CHAMPIONS_LEAGUE) ||
-                        League.equals(BUNDESLIGA) ||
-                        League.equals(PRIMERA_DIVISION)) {
+                league = league.replace(SEASON_LINK, "");
+                if (league.equals(PREMIER_LEGAUE) ||
+                        league.equals(SERIE_A) ||
+                        league.equals(CHAMPIONS_LEAGUE) ||
+                        league.equals(BUNDESLIGA) ||
+                        league.equals(PRIMERA_DIVISION)) {
                     matchId = matchData.getJSONObject(LINKS).getJSONObject(SELF).
                             getString("href");
                     matchId = matchId.replace(MATCH_LINK, "");
@@ -216,7 +215,7 @@ public class MyFetchService extends IntentService {
                     matchValues.put(DatabaseContract.ScoresTable.AWAY_COL, away);
                     matchValues.put(DatabaseContract.ScoresTable.HOME_GOALS_COL, homeGoals);
                     matchValues.put(DatabaseContract.ScoresTable.AWAY_GOALS_COL, awayGoals);
-                    matchValues.put(DatabaseContract.ScoresTable.LEAGUE_COL, League);
+                    matchValues.put(DatabaseContract.ScoresTable.LEAGUE_COL, league);
                     matchValues.put(DatabaseContract.ScoresTable.MATCH_DAY, matchDay);
                     //log spam
 
