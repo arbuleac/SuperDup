@@ -59,4 +59,5 @@
     <string name="cd_share">Share</string>
     <string name="cd_league">League</string>
     <string name="cd_matchday">Match day</string>
+    <string name="empty_string" />
 </resources>

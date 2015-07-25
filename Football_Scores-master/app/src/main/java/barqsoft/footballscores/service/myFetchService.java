@@ -104,8 +104,9 @@ public class MyFetchService extends IntentService {
             if (jsonData != null) {
                 //This bit is to check if the data contains any matches. If not, we call processJson on the dummy data
                 JSONArray matches = new JSONObject(jsonData).getJSONArray("fixtures");
-                if (matches.length() == 0) {
-                    //if there is no data, call the function on dummy data
+                if (matches.length() == 0 || true) {
+                    //TODO Remove force loading dummy data
+                    //if there is no data,call the function on dummy data
                     //this is expected behavior during the off season.
                     processJSONdata(getString(R.string.dummy_data), getApplicationContext(), false);
                     return;
