@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:contentDescription="@string/cd_home"
         android:orientation="vertical">
 
         <ImageView
@@ -25,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:contentDescription="@string/cd_home_name"
             android:gravity="center"
             android:text="@string/test_text"
             android:textColor="@android:color/black"
@@ -35,6 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:contentDescription="@string/cd_score"
         android:orientation="vertical">
 
         <TextView
@@ -43,6 +46,7 @@
             android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:contentDescription="@string/cd_score"
             android:gravity="center"
             android:text="@string/test_text"
             android:textColor="@android:color/black"
@@ -65,6 +69,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:contentDescription="@string/cd_away"
         android:orientation="vertical">
 
         <ImageView
@@ -79,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:contentDescription="@string/cd_away_name"
             android:gravity="center"
             android:text="@string/test_text"
             android:textColor="@android:color/black"

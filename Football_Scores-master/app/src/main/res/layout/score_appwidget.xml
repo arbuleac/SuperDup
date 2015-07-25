@@ -20,6 +20,7 @@
         android:text="@string/empty_string"
         android:textColor="#ffffff"
         android:textSize="20sp"
+        android:contentDescription="@string/cd_empty"
         android:visibility="gone" />
 
 </LinearLayout>

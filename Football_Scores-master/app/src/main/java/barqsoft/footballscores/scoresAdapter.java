@@ -44,11 +44,16 @@ public class ScoresAdapter extends CursorAdapter {
         final ViewHolder mHolder = (ViewHolder) view.getTag();
         mHolder.homeName.setText(cursor.getString(COL_HOME));
         mHolder.homeName.setContentDescription(cursor.getString(COL_HOME));
+
         mHolder.awayName.setText(cursor.getString(COL_AWAY));
         mHolder.awayName.setContentDescription(cursor.getString(COL_AWAY));
+
         mHolder.date.setText(cursor.getString(COL_MATCHTIME));
+        mHolder.date.setText(context.getString(R.string.match_time));
+
         mHolder.score.setText(Utilies.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS)));
         mHolder.score.setContentDescription(Utilies.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS)));
+
         mHolder.matchId = cursor.getDouble(COL_ID);
         mHolder.homeCrest.setImageResource(Utilies.getTeamCrestByTeamName(view.getContext(), cursor.getString(COL_HOME)));
         mHolder.awayCrest.setImageResource(Utilies.getTeamCrestByTeamName(view.getContext(), cursor.getString(COL_AWAY)));
@@ -68,11 +73,14 @@ public class ScoresAdapter extends CursorAdapter {
                     cursor.getInt(COL_LEAGUE)));
             matchDay.setContentDescription(context.getString(R.string.cd_matchday) + " " + Utilies.getMatchDay(view.getContext(), cursor.getInt(COL_MATCHDAY),
                     cursor.getInt(COL_LEAGUE)));
+
             TextView league = (TextView) v.findViewById(R.id.league_textview);
             league.setText(Utilies.getLeague(view.getContext(), cursor.getInt(COL_LEAGUE)));
             league.setContentDescription(context.getString(R.string.cd_league) + " " + Utilies.getLeague(view.getContext(), cursor.getInt(COL_LEAGUE)));
+
             Button shareButton = (Button) v.findViewById(R.id.share_button);
             shareButton.setContentDescription(context.getString(R.string.cd_share));
+
             shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

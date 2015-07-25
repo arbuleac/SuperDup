@@ -60,4 +60,12 @@
     <string name="cd_league">League</string>
     <string name="cd_matchday">Match day</string>
     <string name="empty_string" />
+    <string name="match_time">Match time</string>
+    <string name="about">cd_about</string>
+    <string name="cd_empty">Empty</string>
+    <string name="cd_home">Home</string>
+    <string name="cd_home_name">Home name</string>
+    <string name="cd_score">Score</string>
+    <string name="cd_away">Away</string>
+    <string name="cd_away_name">Away name</string>
 </resources>

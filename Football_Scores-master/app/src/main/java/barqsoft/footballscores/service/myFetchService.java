@@ -115,6 +115,7 @@ public class MyFetchService extends IntentService {
 
                 processJSONdata(jsonData, getApplicationContext(), true);
             } else {
+                processJSONdata(getString(R.string.dummy_data), getApplicationContext(), false);
                 //Could not Connect
                 Log.d(LOG_TAG, "Could not connect to server.");
             }
