@@ -2,8 +2,11 @@ package it.jaschke.alexandria.services;
 
 import android.app.IntentService;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -65,9 +68,8 @@ public class BookService extends IntentService {
     private void confirmBook(String ean) {
         if (ean != null) {
             ContentValues values = new ContentValues();
-            values.put(AlexandriaContract.BookEntry._ID, ean);
             values.put(AlexandriaContract.BookEntry.USER_STATUS, AlexandriaContract.BookEntry.STATUS_CONFIRMED);
-            getContentResolver().update(AlexandriaContract.BookEntry.CONTENT_URI, values, null, null);
+            getContentResolver().update(AlexandriaContract.BookEntry.CONTENT_URI, values, AlexandriaContract.BookEntry._ID + "=?", new String[]{ean});
         }
     }
 
@@ -86,6 +88,14 @@ public class BookService extends IntentService {
      * parameters.
      */
     private void fetchBook(String ean) {
+        ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+        if (!isConnected) {
+            showMessage(getResources().getString(R.string.book_load_error_message));
+            return;
+        }
 
         if (ean.length() != 13) {
             return;
